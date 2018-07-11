@@ -36,7 +36,8 @@ def get_fremont_data(filename='Fremont.csv', url=FREMONT_URL,
     # look at http://strftime.org/
     data = pd.read_csv('Fremont.csv', index_col='Date')
     try:
-        data.index = pd.to_datetime(data.index, format='%m/%d/%Y %H:%M:%S %p')
+        #data.index = pd.to_datetime(data.index, format='%m/%d/%Y %H:%M:%S %p') 
+        data.index = pd.to_datetime(data.index, format='%m/%d/%Y %I:%M:%S %p') #I for 12 hour color with AM/PM
     except TypeError:
         data.index = pd.to_datetime(data.index) #infer it automatically takes alot of time x10 at least
 
